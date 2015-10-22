@@ -5,16 +5,6 @@
 #ifndef HOEMEWORK_HEADER_FILE
 #define HOEMEWORK_HEADER_FILE
 
-#define MAGIC_NUMBER_SIZE 2 // P5 or P6
-#define IMG_GRAYSCALE "P5"
-#define IMG_COLOR "P6"
-
-// debugging macros
-#define DEBUG_ON 1
-#define log_int(a)      if(DEBUG_ON) printf("%d\n", a)
-#define log_char(a)    if(DEBUG_ON) printf("%c\n", a)
-#define log_string(a)   if(DEBUG_ON) printf("%s\n", a)
-
 // dependencies 
 #include <stdio.h>
 #include <omp.h>
@@ -22,13 +12,18 @@
 #include <string.h>
 
 // constants
-#define P5 "P5"
-#define P6 "P6"
+#define MAGIC_NUMBER_SIZE 2 // P5 or P6
+#define IMG_GRAYSCALE "P5"
+#define IMG_COLOR "P6"
 
 // aliases
 enum { false, true };
 typedef unsigned char byte;
 typedef unsigned char bool;
+
+// external variables
+extern int resize_factor;
+extern int num_threads;
 
 /* Struct for the datatype "image".
  * Holds whether the image is in grayscale, the width and height, the

@@ -1,0 +1,2 @@
+0.002347
+Writing file: lennascaled2col.pnm
