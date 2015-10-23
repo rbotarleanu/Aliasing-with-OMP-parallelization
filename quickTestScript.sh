@@ -1,2 +1,2 @@
 #!/bin/sh
-./homework 'in/lenna_bw.pgm' 'lennascaled2.pgm' $1 $2
+./homework '../highres.pnm' 'out/highres.pnm' $1 $2

@@ -2,8 +2,8 @@
  * 331CB
  */
 
-#ifndef HOEMEWORK_HEADER_FILE
-#define HOEMEWORK_HEADER_FILE
+#ifndef HOMEWORK_HEADER_FILE
+#define HOMEWORK_HEADER_FILE
 
 // dependencies 
 #include <stdio.h>
@@ -16,14 +16,12 @@
 #define IMG_GRAYSCALE "P5"
 #define IMG_COLOR "P6"
 
+extern const int gk[3][3];
+
 // aliases
 enum { false, true };
 typedef unsigned char byte;
 typedef unsigned char bool;
-
-// external variables
-extern int resize_factor;
-extern int num_threads;
 
 /* Struct for the datatype "image".
  * Holds whether the image is in grayscale, the width and height, the
