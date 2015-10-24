@@ -7,8 +7,6 @@
 
 // dependencies 
 #include <omp.h>
-#include <stdlib.h>
-#include <string.h>
 
 // constants
 #define MAGIC_NUMBER_SIZE 2 // P5 or P6

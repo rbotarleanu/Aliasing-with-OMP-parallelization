@@ -1,2 +1,2 @@
 #!/bin/sh
-./homework '../highres.pnm' 'out/highres.pnm' $1 $2
+./homework1 'out/render.pgm' $1 $2

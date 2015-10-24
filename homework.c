@@ -2,6 +2,8 @@
  * 331CB
  */
 #include "homework.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 int num_threads;
 int resize_factor;

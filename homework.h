@@ -2,14 +2,11 @@
  * 331CB
  */
 
-#ifndef HOMEWORK_HEADER_FILE
-#define HOMEWORK_HEADER_FILE
+#ifndef HOMEWORK_HEADER_GUARD
+#define HOMEWORK_HEADER_GUARD
 
 // dependencies 
-#include <stdio.h>
 #include <omp.h>
-#include <stdlib.h>
-#include <string.h>
 
 // constants
 #define MAGIC_NUMBER_SIZE 2 // P5 or P6
