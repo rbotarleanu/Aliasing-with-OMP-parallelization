@@ -7,9 +7,6 @@
 
 #include "omp.h"
 
-// distance macro
-#define distance(x ,y) (int) (abs(-1 * x + 2 * y + 0) / sqrt(1 + 4))
-
 // constants
 #define IMG_GRAYSCALE "P5"
 #define WHITE 255

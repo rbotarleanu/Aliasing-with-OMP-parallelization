@@ -2,8 +2,8 @@
  * 331CB
  */
 
-#ifndef HOMEWORK_HEADER_FILE
-#define HOMEWORK_HEADER_FILE
+#ifndef HOMEWORK_HEADER_GUARD
+#define HOMEWORK_HEADER_GUARD
 
 // dependencies 
 #include <omp.h>
