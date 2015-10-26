@@ -23,7 +23,8 @@ spatiul necesar inainte de a citi, linie cu linie, matricea de pixeli.
 variabila grayscale a incapului imagine), apoi width, height, maxvalue si, in
 final, matricea de bytes care reprezinta culorile pixelilor din imagine.
 	Functia "resize" va calcula width, height, bytes_in_row si byte_count in
-functie de factorul de scalare pentru imaginea rezultanta si va seta variabilele grayscale, maxval vor ramane neschimbate fata de imaginea originala. De 
+functie de factorul de scalare pentru imaginea rezultanta si va seta variabilele 
+grayscale, maxval vor ramane neschimbate fata de imaginea originala. De 
 asemenea, se va aloca matricea de pixeli pentru imaginea rezultanta. In final,
 in functie de factorul de scalare se va apela una din doua functii pentru 
 construirea matricei de pixeli cu factor de scalare par sau 3:
@@ -54,63 +55,63 @@ linie sa fie procesate de catre un thread, permitand astfel pentru un numar mai
 mare de thread-uri sa se poata calcula mai multe linii simultan micsorand 
 semnificativ timpul de executie total al programului.
 	Rezultele testelor de scalabilitate facute pe cluster, pentru o imagine
-de dimensiune 5611 x 4115 pixels, atat in format pnm(color) si pgm(grayscale)
-sunt urmatoarele:
+de dimensiune 17384 x 5558 pixels, atat in format pnm(color) si pgm(grayscale) 
+sunt urmatoarele(extrase din 10 iteratii):
 
 **********BW Scale 2***********
-1 Thread  
-0.266197  
-2 Threads 
-0.144950  
-4 Threads 
-0.072130  
+1 Thread
+1.096320
+2 Threads
+0.592463
+4 Threads
+0.306725
 8 Threads
-0.037008
+0.154146
 **********BW Scale 8***********
 1 Thread
-0.165074
+0.684928
 2 Threads
-0.085297
+0.353111
 4 Threads
-0.043451
+0.175343
 8 Threads
-0.021346
+0.089278
 **********BW Scale 3***********
 1 Thread
-0.250382
+1.030496
 2 Threads
-0.128671
+0.523338
 4 Threads
-0.063691
+0.266490
 8 Threads
-0.032532
+0.138238
 **********Color Scale 2***********
 1 Thread
-0.438837
+1.815575
 2 Threads
-0.232365
+0.949436
 4 Threads
-0.117091
+0.485363
 8 Threads
-0.060793
+0.257338
 ********Color Scale 8********
 1 Thread
-0.284121
+1.185656
 2 Threads
-0.145789
+0.609946
 4 Threads
-0.074124
+0.308176
 8 Threads
-0.037077
+0.152094
 *************Color Scale 3*********
 1 Thread
-0.430846
+1.803321
 2 Threads
-0.224739
+1.015275
 4 Threads
-0.111101
+0.466498
 8 Threads
-0.057385
+0.243054
 
 	Dupa cum se observa, dubland numarul de thread-uri pornind de la 1 thread
 pana la 8 thread-uri va imbunatati semnificativ timpul de executie al programu-
@@ -118,7 +119,7 @@ lui pentru toti factorii de scalare pari sau 3 testati.
 	A fost aleasa o imagine cu o rezolutie mai mare pentru a evidentia cat mai 
 bine efectul pe care pornirea de mai multe thread-uri o are asupra executiei 
 programului.
-
+	
 
 II. Micro Renderer
 	a) Descrierea structurii programului si a algoritmului folosit
@@ -153,25 +154,42 @@ de pozitia sa relativa in plan).
 de 10000x10000. Au fost alese rezolutii mai mari pentru a evidentia cat mai bine
 efectul pe care pornirea de mai multe thread-uri o are asupra executiei 
 programului.
+	Rezultatele sunt urmatoarele(extrase din 10 iteratii):
 
 *************Resolution 8000*********
 1 Thread
-3.388316
+3.573849
 2 Threads
-1.822046
+1.808884
 4 Threads
-0.895396
+0.911789
 8 Threads
-0.447808
+0.450748
 *************Resolution 10000*********
 1 Thread
-5.166983
+5.586272
 2 Threads
-2.731110
+2.823425
 4 Threads
-1.424931
+1.417046
 8 Threads
-0.706789
+0.703739
 
 	Dupa cum se observa, prin dublarea numarului de thread-uri de la 1 thread
 pana la 8, se imbunatateste semnificativ timpul de executie al programului.
+
+
+	Metodologia de testare si descrierea sistemelor pe care am efectuat testele	
+	In scopul obtinerii unor date cat mai conclusive, am ales sa folosesc o 
+imagine de rezolutie foarte mare la primul exercitiu si rezolutii de 8000 si
+10000 la al doilea. 
+	Am testat fiecare caz prezentat in tema pentru primul exercitiu, verificand
+atat pentru imagine color si grayscale factori de scalare de 2, 3 si 8 pentru
+un numar de 1, 2, 4 si 8 thread-uri. Aceste teste au fost realizate intr-un
+numar de 10 iteratii pe cluster-ul facultatii, pe coada ibm-nehalem, iar datele
+prezentate anterior au fost extrase din cele 10 iteratii. La fiecare iteratie,
+s-a putut vedea clar scalabilitatea celor doua programe prin cresterea numarului
+de thread-uri.
+	Sistemul pe care s-au realizat testele este coada ibm-nehalem.q din cadrul
+cluster-ului facultatii. Este un sistem distribuit, ce contine un numar de
+noduri. Script-ul de testare a fost alocat drept un job si nu a fost partajat.
